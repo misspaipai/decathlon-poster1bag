@@ -1,0 +1,227 @@
+/* --- 全局与容器设置 --- */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #333; /* 浏览器深色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* 海报主容器：限制最大宽度，保持比例 */
+.poster-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* 模拟手机/海报宽度 */
+    aspect-ratio: 6 / 9; /* 锁定长宽比，防止变形 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden; /* 防止内容溢出 */
+}
+
+/* 背景图：铺满容器 */
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 交互层：覆盖在图片上 */
+.interaction-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 让鼠标事件穿透空白区域，只点卡片 */
+}
+
+/* 通用卡片样式 */
+.card-box {
+    position: absolute;
+    pointer-events: auto; /* 恢复卡片的点击事件 */
+    background: rgba(255, 255, 255, 0.85); /* ✅ 修正：半透明白色背景 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果，更高级 */
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #54cfaa;
+}
+
+/* --- 左侧 OOTD 打卡区 (大卡片) --- */
+.ootd-card {
+    /* 📍 调整位置：向下移动 */
+   bottom: 10%;
+   top: 72.5%;
+    left: 5%;
+    width: 48%;
+
+    /* 📏 尺寸修正：不再强制固定高度，而是设置最小高度 */
+    min-height: 160px;
+    height: auto;
+
+    border: 1px solid rgba(255, 255, 255, 0.9); /* 稍微明显的边框 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);     /* 增加一点阴影提升层次感 */
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+/* --- 左侧卡片：上传功能专用样式 --- */
+
+/* 1. 强制规定左侧卡片的内容区域高度和布局 */
+.left-card {
+    display: flex;
+    flex-direction: column;
+    /* 确保卡片有足够的高度容纳图片和文字 */
+    min-height: 200px;
+}
+
+/* 2. 上传区域的容器，占据卡片主要空间 */
+.upload-wrapper {
+    flex: 1; /* 自动填满剩余垂直空间 */
+    background-color: #f0f8ff; /* 淡淡的蓝色背景 */
+    border: 1px dashed #bce0e6; /* 虚线边框 */
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden; /* 防止图片圆角溢出 */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    min-height: 80px; 
+}
+.upload-wrapper:hover {
+    background-color: #e6f4fa;
+    border-color: #0082c9;
+}
+.upload-placeholder {
+    text-align: center;
+    color: #888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.upload-placeholder i {
+    font-size: 24px;
+    color: #0082c9;
+}
+
+.upload-placeholder span {
+    font-size: 12px;
+}
+
+
+/* 4. 图片预览样式 - 关键！ */
+#preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 关键：保持比例填满容器，裁剪多余部分 */
+    display: block;
+}
+
+/* 5. 底部说明文字微调 */
+.card-desc {
+    font-size: 12px;
+    color: #999;
+    margin-top: auto; /* 沉底 */
+}
+.ootd-header {
+     font-size: 14px;
+    font-weight: bold;
+    color: #0082c9; /* 迪卡侬蓝 */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 关键：保持比例填满容器，裁剪多余部分 */
+    display: block;
+}
+.ootd-subtitle {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.editable-area {
+    flex-grow: 1;
+    font-size: 11px;
+    line-height: 1.4;
+    outline: none;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+.editable-area:empty:before {
+    content: attr(data-placeholder);
+    color: #ccc;
+}
+
+/* --- 右侧 环保感悟 (右上小卡片) --- */
+.env-card {
+    /* 📍 调整位置：向下移动 */
+    top: 72.5%;   /* 与左侧大框顶部对齐 */
+    right: 5%;
+    width: 40%;
+    height: 8%;
+}
+
+/* --- 右侧 二手流转心得 (右下小卡片) --- */
+.recycle-card {
+    /* 📍 调整位置：紧接在环保感悟下方 */
+    top: 82%;   /* 根据上方卡片高度调整 */
+    right: 5%;
+    width: 40%;
+    height: 8%;
+}
+
+/* 右侧卡片的横线效果 */
+.lines-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* 让横线在卡片内均匀分布 */
+    padding: 0;
+    padding-top: 1px;
+    gap: 8px;
+    height: 30%;
+}
+
+.line-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px dashed #ddd;
+    background: transparent;
+    font-size: 10px;
+    outline: none;
+    line-height: 6px;
+    height: 5px;
+}
+
+/* 按钮样式 */
+.generate-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0082c9;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+.generate-btn:hover {
+    background-color: #006ba3;
+}

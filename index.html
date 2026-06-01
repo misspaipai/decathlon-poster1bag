@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迪卡侬 - 终点亦是起点</title>
+    <!-- 引入图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 主容器 -->
+    <div id="capture-area" class="poster-wrapper">
+        <!-- 1. 背景图 -->
+        <img src="https://s3.bmp.ovh/2026/05/31/8wMNpsMC.png" alt="Background" class="bg-image">
+
+        <!-- 2. 交互层 -->
+        <div class="interaction-layer">
+
+            <!-- 左侧 OOTD 打卡区 -->
+<div class="card-box ootd-card">
+    <!-- 头部标题 -->
+    <div class="ootd-header">
+        <i class="fa-solid fa-camera"></i> OOTD 打卡区
+    </div>
+
+    <!-- 核心上传区域 -->
+    <div class="upload-wrapper" onclick="document.getElementById('ootd-file').click()">
+        <!-- 隐藏的文件输入框 -->
+        <input type="file" id="ootd-file" accept="image/*" style="display: none;">
+
+        <!-- 状态1：未上传时的提示 -->
+        <div id="upload-placeholder" class="upload-placeholder">
+            <i class="fa-solid fa-plus"></i>
+            <span>点击上传照片</span>
+        </div>
+
+        <!-- 状态2：上传后的图片预览 -->
+        <img id="preview-img" src="" alt="Preview" style="display: none;">
+    </div>
+
+    <!-- 底部说明文字 -->
+    <div class="ootd-desc">分享你的环保穿搭...</div>
+</div>
+
+            <!-- 右侧上框 -->
+            <div class="card-box env-card">
+                <div class="ootd-header" style="justify-content: space-between;">
+                    <span>环保感悟</span>
+                    <i class="fa-solid fa-leaf" style="color: #4caf50;"></i>
+                </div>
+                <div class="lines-container">
+                    <input type="text" class="line-input" placeholder="">
+                    <input type="text" class="line-input" placeholder="">
+                </div>
+            </div>
+
+            <!-- 右侧下框 -->
+            <div class="card-box recycle-card">
+                <div class="ootd-header" style="justify-content: space-between;">
+                    <span>二手流转心得</span>
+                    <i class="fa-solid fa-rotate" style="color: #0082c9;"></i>
+                </div>
+                <div class="lines-container">
+                    <input type="text" class="line-input" placeholder="">
+                    <input type="text" class="line-input" placeholder="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 生成按钮 -->
+    <button class="generate-btn" onclick="alert('即将生成海报...')">生成海报</button>
+
+</body>
+</html>
