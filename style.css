@@ -57,11 +57,11 @@ body {
    top: 72.5%;
     left: 5%;
     width: 48%;
-
+position: absolute;
     /* 📏 尺寸修正：不再强制固定高度，而是设置最小高度 */
     min-height: 160px;
     height: auto;
-
+height: 17%;
     border: 1px solid rgba(255, 255, 255, 0.9); /* 稍微明显的边框 */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);     /* 增加一点阴影提升层次感 */
     display: flex;
