@@ -52,9 +52,6 @@ body {
 
 /* --- 左侧 OOTD 打卡区 (大卡片) --- */
 .ootd-card {
-    /* 📍 调整位置：向下移动 */
-   ootd-card {
-    /* 📏 尺寸修正：不再强制固定高度，而是设置最小高度 */
    position: absolute;
     bottom: 10%;
     top: 72.5%;
