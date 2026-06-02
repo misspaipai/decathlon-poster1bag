@@ -53,7 +53,6 @@ body {
 /* --- 左侧 OOTD 打卡区 (大卡片) --- */
 .ootd-card {
    position: absolute;
-    bottom: 10%;
     top: 72.5%;
     left: 5%;
     width: 48%;
